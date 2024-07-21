@@ -4,11 +4,95 @@
 
 <head>
 	<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+	<style>
+		.verification{
+			border:2px solid black;
+			display:flex;
+			flex-direction:column;
+			align-items:center;
+			border-radius:10px;
+			padding:10px;
+		}
+		.verification header{
+			display:flex;
+			flex-direction:column;
+			align-items:center;
+		}
+		#verification_subtext{
+			font-size:13px;
+			font-weight:300;
+		}
+		.outfit-text {
+			font-family: "Outfit", sans-serif;
+			font-optical-sizing: auto;
+			font-weight: 400;
+			font-style: normal;
+		}
+
+		.code-container{
+			display:flex;
+			gap:15px;
+			margin-top:10px
+		}
+		
+		.code{
+			height:75px;
+			width:65px;
+			font-size: 60px;
+			text-align:center;
+	
+		}
+		.confirmation{
+			background-color:#eaeaea;
+			width:400px;
+			margin:40px;
+			border-radius:5px;
+		}
+		.confirmation p{
+			margin:0;
+			text-align:center;
+			padding:8px;
+			font-weight:300;
+			font-size:14px;
+			color:#a4b0bc;
+		}
+	</style>
 </head>
 
 <body>
 	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
+	<div class="verification">
+		<header>
+			<h1 id="verification_heading" class="outfit-text">Verify Your Account</h1>
+			<p id="verification_subtext" class="outfit-text">We emailed you the six digit code to acciojob@email.com Enter the code below to confirm your email address</p>
+		</header>
+		<div class="code-container">
+			<input class="code" type="text" maxlength="1" id="dig1" oninput="changeFocus(1)" onkeydown="handleBackspace(event, 1)" placeholder="0" autofocus>
+			<input class="code" type="text" maxlength="1" id="dig2" oninput="changeFocus(2)" onkeydown="handleBackspace(event, 2)" placeholder="0">
+			<input class="code" type="text" maxlength="1" id="dig3" oninput="changeFocus(3)" onkeydown="handleBackspace(event, 3)" placeholder="0">
+			<input class="code" type="text" maxlength="1" id="dig4" oninput="changeFocus(4)" onkeydown="handleBackspace(event, 4)" placeholder="0">
+			<input class="code" type="text" maxlength="1" id="dig5" oninput="changeFocus(5)" onkeydown="handleBackspace(event, 5)" placeholder="0">
+			<input class="code" type="text" maxlength="1" id="dig6" oninput="changeFocus(6)" onkeydown="handleBackspace(event, 6)" placeholder="0">
+		</div>
+
+		<div class="confirmation">
+			<p class="outfit-text">This is design only. We didn't actually send you an email as we don't have your email, right?</p>
+		</div>
+	</div>
+    <script >
+		document.getElementById("dig1").focus()
+		function changeFocus(curr) {
+			document.getElementById(`dig${curr + 1}`).focus();
+		}
+		function handleBackspace(e, curr) {
+			if(e.key === "Backspace" && document.getElementById(`dig${curr}`).value === "" && curr>1){
+				document.getElementById(`dig${curr - 1}`).focus();
+				document.getElementById(`dig${curr - 1}`).value = ""
+			}
+		}
 </script>
 
 </body>
