@@ -83,12 +83,17 @@
 		</div>
 	</div>
     <script >
-		document.getElementById("code-1").focus();
-		let changeFocus = curr => document.getElementById(`code-${curr + 1}`).focus();
+		// document.getElementById("code-1").focus(); 
+		let changeFocus = curr => {
+			if( document.getElementById(`code-${curr}`).value.length == 1 && curr < 6){
+				document.getElementById(`code-${curr + 1}`).focus()};
+			}
+			
 		let handleBackspace = (e, curr)=> {
 			if(e.key === "Backspace" && document.getElementById(`code-${curr}`).value === "" && curr>1){
-				document.getElementById(`code-${curr - 1}`).focus();
 				document.getElementById(`code-${curr - 1}`).value = ""
+				document.getElementById(`code-${curr - 1}`).focus();
+				
 			}
 		}
 </script>
