@@ -70,7 +70,7 @@
 			<p id="verification_subtext" class="outfit-text">We emailed you the six digit code to acciojob@email.com Enter the code below to confirm your email address</p>
 		</header>
 		<div class="code-container">
-			<input class="code" type="text" maxlength="1" id="code-1" oninput="changeFocus(1)" onkeydown="handleBackspace(event, 1)" placeholder="0" autofocus>
+			<input class="code" type="text" maxlength="1" id="code-1" oninput="changeFocus(1)" onkeydown="handleBackspace(event, 1)" placeholder="0">
 			<input class="code" type="text" maxlength="1" id="code-2" oninput="changeFocus(2)" onkeydown="handleBackspace(event, 2)" placeholder="0">
 			<input class="code" type="text" maxlength="1" id="code-3" oninput="changeFocus(3)" onkeydown="handleBackspace(event, 3)" placeholder="0">
 			<input class="code" type="text" maxlength="1" id="code-4" oninput="changeFocus(4)" onkeydown="handleBackspace(event, 4)" placeholder="0">
@@ -83,6 +83,7 @@
 		</div>
 	</div>
     <script >
+		document.getElementById("code-1").focus();
 		let changeFocus = curr => document.getElementById(`code-${curr + 1}`).focus();
 		let handleBackspace = (e, curr)=> {
 			if(e.key === "Backspace" && document.getElementById(`code-${curr}`).value === "" && curr>1){
