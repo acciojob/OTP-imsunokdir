@@ -85,9 +85,12 @@
     <script >
 		// document.getElementById("code-1").focus(); 
 		let changeFocus = curr => {
-			if( document.getElementById(`code-${curr}`).value.length == 1 && curr < 6){
-				document.getElementById(`code-${curr + 1}`).focus()};
+			  const currField = event.target;
+			const nextField = currField.nextElementSibling;
+			if (nextField) {
+				nextField.focus();
 			}
+		}
 			
 		let handleBackspace = (e, curr)=> {
 			if(e.key === "Backspace" && document.getElementById(`code-${curr}`).value === "" && curr>1){
