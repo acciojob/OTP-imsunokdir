@@ -70,12 +70,12 @@
 			<p id="verification_subtext" class="outfit-text">We emailed you the six digit code to acciojob@email.com Enter the code below to confirm your email address</p>
 		</header>
 		<div class="code-container">
-			<input class="code" type="text" maxlength="1" id="dig1" oninput="changeFocus(1)" onkeydown="handleBackspace(event, 1)" placeholder="0" autofocus>
-			<input class="code" type="text" maxlength="1" id="dig2" oninput="changeFocus(2)" onkeydown="handleBackspace(event, 2)" placeholder="0">
-			<input class="code" type="text" maxlength="1" id="dig3" oninput="changeFocus(3)" onkeydown="handleBackspace(event, 3)" placeholder="0">
-			<input class="code" type="text" maxlength="1" id="dig4" oninput="changeFocus(4)" onkeydown="handleBackspace(event, 4)" placeholder="0">
-			<input class="code" type="text" maxlength="1" id="dig5" oninput="changeFocus(5)" onkeydown="handleBackspace(event, 5)" placeholder="0">
-			<input class="code" type="text" maxlength="1" id="dig6" oninput="changeFocus(6)" onkeydown="handleBackspace(event, 6)" placeholder="0">
+			<input class="code" type="text" maxlength="1" id="code-1" oninput="changeFocus(1)" onkeydown="handleBackspace(event, 1)" placeholder="0" autofocus>
+			<input class="code" type="text" maxlength="1" id="code-2" oninput="changeFocus(2)" onkeydown="handleBackspace(event, 2)" placeholder="0">
+			<input class="code" type="text" maxlength="1" id="code-3" oninput="changeFocus(3)" onkeydown="handleBackspace(event, 3)" placeholder="0">
+			<input class="code" type="text" maxlength="1" id="code-4" oninput="changeFocus(4)" onkeydown="handleBackspace(event, 4)" placeholder="0">
+			<input class="code" type="text" maxlength="1" id="code-5" oninput="changeFocus(5)" onkeydown="handleBackspace(event, 5)" placeholder="0">
+			<input class="code" type="text" maxlength="1" id="code-6" oninput="changeFocus(6)" onkeydown="handleBackspace(event, 6)" placeholder="0">
 		</div>
 
 		<div class="confirmation">
@@ -83,14 +83,11 @@
 		</div>
 	</div>
     <script >
-		document.getElementById("dig1").focus()
-		function changeFocus(curr) {
-			document.getElementById(`dig${curr + 1}`).focus();
-		}
-		function handleBackspace(e, curr) {
-			if(e.key === "Backspace" && document.getElementById(`dig${curr}`).value === "" && curr>1){
-				document.getElementById(`dig${curr - 1}`).focus();
-				document.getElementById(`dig${curr - 1}`).value = ""
+		let changeFocus = curr => document.getElementById(`code-${curr + 1}`).focus();
+		let handleBackspace = (e, curr)=> {
+			if(e.key === "Backspace" && document.getElementById(`code-${curr}`).value === "" && curr>1){
+				document.getElementById(`code-${curr - 1}`).focus();
+				document.getElementById(`code-${curr - 1}`).value = ""
 			}
 		}
 </script>
